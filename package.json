@@ -10,8 +10,7 @@
     "build": "yarn clean && cross-env NODE_ENV=production webpack --config webpack.config.prod.babel.js",
     "eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "tslint": "tslint -t codeFrame -c tslint.json \"**/*.tsx\" \"**/*.d.ts\"",
-    "test": "jest --runInBand --coverage",
-    "lint": "yarn eslint && yarn tslint"
+    "test": "jest --runInBand --coverage"
   },
   "keywords": [],
   "author": "Robert Nguyen <robert.nguyen279@gmail.com>",

@@ -1,9 +1,27 @@
-import http from 'http';
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const morgan = require('morgan');
+require('dotenv').config();
 
-const server = http.createServer((req, res) => {
-  res.end('Hello from the server');
-}).listen(4001);
+const userRoutes = require('./routes/userRoutes');
 
-console.log('Server is up and running');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-export default server;
+app.use(express.json());
+app.use(morgan('dev'));
+app.use(cors());
+
+app.use('/user', userRoutes);
+
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log('DB connected'));
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});

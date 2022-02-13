@@ -1,5 +1,8 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+  ],
   "plugins": [
     [
       "@babel/plugin-proposal-class-properties",
@@ -28,7 +31,10 @@
           "tsx",
           "scss",
         ],
-        "plugins": ["autolinker", "command-line"],
+        "plugins": [
+          "autolinker",
+          "command-line"
+        ],
         "theme": "default",
         "css": true
       }
